@@ -1,0 +1,111 @@
+mikolas@MIKI-U-NTBK:~/FI-Developer/apps/LldbMinimalTest$ swift build
+[7/7] Linking LldbMinimalTest
+mikolas@MIKI-U-NTBK:~/FI-Developer/apps/LldbMinimalTest$ swift run
+Hello, world!
+mikolas@MIKI-U-NTBK:~/FI-Developer/apps/LldbMinimalTest$ /usr/local/bin/swift/usr/bin/lldb .build/debug/LldbMinimalTest
+(lldb) target create ".build/debug/LldbMinimalTest"
+Current executable set to '/home/mikolas/FI-Developer/apps/LldbMinimalTest/.build/debug/LldbMinimalTest' (x86_64).
+(lldb) breakpoint set --file main.swift --line 1
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance(Module)
+lldb             SwiftASTContext("LldbMinimalTest")::SetTriple("x86_64--linux") setting to "x86_64--linux"
+lldb             SwiftASTContext("LldbMinimalTest")::SetTriple("x86_64--linux") setting to "x86_64--linux"
+lldb             SwiftASTContext("LldbMinimalTest")::DeserializeAllCompilerFlags() -- Found 1 AST file data entries.
+lldb             SwiftASTContext("LldbMinimalTest")::DeserializeAllCompilerFlags() -- SDK path from module "GLib" is "".
+lldb             SwiftASTContext("LldbMinimalTest")::DeserializeAllCompilerFlags() -- SDK path from module "LldbMinimalTest" is "".
+lldb             SwiftASTContext("LldbMinimalTest")::DeserializeAllCompilerFlags() -- Picking SDK path "".
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance() -- Found serialized triple x86_64-unknown-linux-gnu.
+lldb             SwiftASTContext("LldbMinimalTest")::SetTriple("x86_64-unknown-linux-gnu") setting to "x86_64-unknown-linux-gnu"
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance() -- No serialized SDK path.
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance() -- Host SDK path is .
+lldb             SwiftASTContext::GetResourceDir() -- trying ePathTypeSwiftDir: /usr/local/bin/swift/usr/lib/swift
+lldb             SwiftASTContext::GetResourceDir() -- found Swift resource dir via ePathTypeSwiftDir': /usr/local/bin/swift/usr/lib/swift
+lldb             SwiftASTContext("LldbMinimalTest")::GetASTContext() -- Using Clang module cache path: /tmp/org.llvm.clang.mikolas/ModuleCache
+lldb             SwiftASTContext("LldbMinimalTest")::GetASTContext() -- Using prebuilt Swift module cache path: /usr/local/bin/swift/usr/lib/swift/linux/prebuilt-modules
+lldb             SwiftASTContext("LldbMinimalTest")::GetModule("GLib")
+lldb             SwiftASTContext("LldbMinimalTest")::GetModule("GLib") -- <module-includes>:1:10: note: in file included from <module-includes>:1:
+#include "CGLib.h"
+         ^
+
+error: /home/mikolas/FI-Developer/apps/LldbMinimalTest/Sources/CGLib/CGLib.h:1:10: error: 'glib.h' file not found
+#include <glib.h>
+         ^
+
+error: could not build C module 'CGLib'
+
+warning: (x86_64) /home/mikolas/FI-Developer/apps/LldbMinimalTest/.build/debug/LldbMinimalTest unable to load swift module "GLib" (failed to get module "GLib" from AST context:
+<module-includes>:1:10: note: in file included from <module-includes>:1:
+#include "CGLib.h"
+         ^
+
+error: /home/mikolas/FI-Developer/apps/LldbMinimalTest/Sources/CGLib/CGLib.h:1:10: error: 'glib.h' file not found
+#include <glib.h>
+         ^
+
+error: could not build C module 'CGLib'
+)
+warning: (x86_64) /home/mikolas/FI-Developer/apps/LldbMinimalTest/.build/debug/LldbMinimalTest unable to load swift module "LldbMinimalTest" (failed to get module "GLib" from AST context:
+<module-includes>:1:10: note: in file included from <module-includes>:1:
+#include "CGLib.h"
+         ^
+
+error: /home/mikolas/FI-Developer/apps/LldbMinimalTest/Sources/CGLib/CGLib.h:1:10: error: 'glib.h' file not found
+#include <glib.h>
+         ^
+
+error: could not build C module 'CGLib'
+)
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance((Module*)0x9b9de0, "LldbMinimalTest") = 0x9fec90
+lldb             SwiftASTContext("LldbMinimalTest")::() -- Failed to create module context - <module-includes>:1:10: note: in file included from <module-includes>:1:
+#include "CGLib.h"
+         ^
+
+error: /home/mikolas/FI-Developer/apps/LldbMinimalTest/Sources/CGLib/CGLib.h:1:10: error: 'glib.h' file not found
+#include <glib.h>
+         ^
+
+error: could not build C module 'CGLib'
+
+Breakpoint 1: where = LldbMinimalTest`main + 8, address = 0x0000000000000b98
+(lldb) q
+mikolas@MIKI-U-NTBK:~/FI-Developer/apps/LldbMinimalTest$ swift package clean
+mikolas@MIKI-U-NTBK:~/FI-Developer/apps/LldbMinimalTest$ swift build
+[6/6] Linking LldbMinimalTest
+mikolas@MIKI-U-NTBK:~/FI-Developer/apps/LldbMinimalTest$ /usr/local/bin/swift/usr/bin/lldb .build/debug/LldbMinimalTest
+(lldb) target create ".build/debug/LldbMinimalTest"
+Current executable set to '/home/mikolas/FI-Developer/apps/LldbMinimalTest/.build/debug/LldbMinimalTest' (x86_64).
+(lldb) breakpoint set --file main.swift --line 1
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance(Module)
+lldb             SwiftASTContext("LldbMinimalTest")::SetTriple("x86_64--linux") setting to "x86_64--linux"
+lldb             SwiftASTContext("LldbMinimalTest")::SetTriple("x86_64--linux") setting to "x86_64--linux"
+lldb             SwiftASTContext("LldbMinimalTest")::DeserializeAllCompilerFlags() -- Found 1 AST file data entries.
+lldb             SwiftASTContext("LldbMinimalTest")::DeserializeAllCompilerFlags() -- SDK path from module "LldbMinimalTest" is "".
+lldb             SwiftASTContext("LldbMinimalTest")::DeserializeAllCompilerFlags() -- Picking SDK path "".
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance() -- Found serialized triple x86_64-unknown-linux-gnu.
+lldb             SwiftASTContext("LldbMinimalTest")::SetTriple("x86_64-unknown-linux-gnu") setting to "x86_64-unknown-linux-gnu"
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance() -- No serialized SDK path.
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance() -- Host SDK path is .
+lldb             SwiftASTContext::GetResourceDir() -- trying ePathTypeSwiftDir: /usr/local/bin/swift/usr/lib/swift
+lldb             SwiftASTContext::GetResourceDir() -- found Swift resource dir via ePathTypeSwiftDir': /usr/local/bin/swift/usr/lib/swift
+lldb             SwiftASTContext("LldbMinimalTest")::GetASTContext() -- Using Clang module cache path: /tmp/org.llvm.clang.mikolas/ModuleCache
+lldb             SwiftASTContext("LldbMinimalTest")::GetASTContext() -- Using prebuilt Swift module cache path: /usr/local/bin/swift/usr/lib/swift/linux/prebuilt-modules
+lldb             SwiftASTContext("LldbMinimalTest")::GetModule("LldbMinimalTest")
+lldb             SwiftASTContext("LldbMinimalTest")::GetModule("LldbMinimalTest") -- found LldbMinimalTest
+lldb             SwiftASTContext("LldbMinimalTest")::CreateInstance((Module*)0x19f9d00, "LldbMinimalTest") = 0x1a3f840
+lldb             SwiftASTContext("LldbMinimalTest")::LogConfiguration(SwiftASTContext*)0x1a3f840:
+lldb               Architecture                 : x86_64-unknown-linux-gnu
+lldb               SDK path                     : 
+lldb               Runtime resource path        : /usr/local/bin/swift/usr/lib/swift
+lldb               Runtime library paths        : (1 items)
+lldb                 /usr/local/bin/swift/usr/lib/swift/linux
+lldb               Runtime library import paths : (1 items)
+lldb                 /usr/local/bin/swift/usr/lib/swift/linux/x86_64
+lldb               Framework search paths       : (0 items)
+lldb               Import search paths          : (3 items)
+lldb                 /home/mikolas/FI-Developer/apps/LldbMinimalTest/.build/x86_64-unknown-linux-gnu/debug
+lldb                 /usr/include/glib-2.0
+lldb                 /usr/lib/x86_64-linux-gnu/glib-2.0/include
+lldb               Extra clang arguments        : (1 items)
+lldb                 -fmodule-map-file=/home/mikolas/FI-Developer/apps/LldbMinimalTest/Sources/CGLib/module.modulemap
+Breakpoint 1: where = LldbMinimalTest`main + 8 at main.swift:3:7, address = 0x0000000000000b98
+(lldb) q
+mikolas@MIKI-U-NTBK:~/FI-Developer/apps/LldbMinimalTest$ 
