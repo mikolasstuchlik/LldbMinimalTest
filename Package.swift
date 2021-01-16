@@ -10,7 +10,7 @@ let package = Package(
         // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
-        .systemLibrary(name: "CGLib", pkgConfig: "gio-unix-2.0"),
+        .systemLibrary(name: "CGLib", pkgConfig: "pangocairo"),
         .target(
             name: "GLib", 
             dependencies: ["CGLib"],
